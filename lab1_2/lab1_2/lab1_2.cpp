@@ -38,12 +38,12 @@ void* print_inverted(void* arg) {
 int main() {
     pthread_t thread1, thread2;
 
-    if (pthread_create(&thread1, NULL, print_random, NULL)) {
+    if (!pthread_create(&thread1, NULL, print_random, NULL)) {
         std::cerr << "Error creating thread1" << std::endl;
         return 1;
     }
 
-    if (pthread_create(&thread2, NULL, print_inverted, NULL)) {
+    if (!pthread_create(&thread2, NULL, print_inverted, NULL)) {
         std::cerr << "Error creating thread2" << std::endl;
         return 1;
     }
